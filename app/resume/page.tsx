@@ -68,7 +68,7 @@ export default function ResumePage() {
         </div>
 
         <div className="p-4">
-          <div className="border-2 rounded-md overflow-auto max-h-[80vh] flex justify-center pt-4" style={{ borderColor: '#0F0909' }}>
+          <div className="border-2 rounded-md overflow-auto max-h-[80vh] flex justify-center pt-4 pb-4" style={{ borderColor: '#0F0909' }}>
             <Image 
               src={resumeImage}
               alt="Chris Xu's Resume"
