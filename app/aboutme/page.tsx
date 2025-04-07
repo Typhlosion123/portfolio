@@ -16,7 +16,7 @@ export default function AboutMe() {
         <div className="absolute left-1/2 transform -translate-x-[40%] w-px h-full bg-white" />
 
         {/* Left Side: Name and Contact */}
-        <div className="w-1/2 pr-12 flex flex-col justify-center items-end text-right  font-ubuntu">
+        <div className="w-1/2 pr-12 flex flex-col justify-center items-end text-right font-ubuntu">
           <h1 className="text-4xl font-bold mb-4">Chris Xu</h1>
           <p className="text-lg">Email: cxu57@illinois.edu</p>
           <div className="mt-4 space-y-25">
