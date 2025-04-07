@@ -2,15 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import "react-pdf/dist/esm/Page/TextLayer.css";
-
-// Import worker directly from the pdfjs-dist package
-import workerSrc from 'pdfjs-dist/build/pdf.worker.min.js?url';
-
-// Set the local worker path
-pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+import Image from "next/image";
 
 export default function ResumePage() {
   const [isFading, setIsFading] = useState(true);
@@ -36,7 +28,7 @@ export default function ResumePage() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [router]);
 
-  const pdfFile = "/resume.pdf";
+  const resumeImage = "/resume-image.png"; // Replace with your actual image path
 
   if (!isClient) {
     return (
@@ -55,7 +47,7 @@ export default function ResumePage() {
           <h1 className="text-xl font-mono text-black">Last updated: 3/31/2025</h1>
           <div className="flex space-x-2">
             <a
-              href={pdfFile}
+              href="/resume.pdf" // Keep this as the actual PDF download
               download="Chris_Xu_Resume.pdf"
               className="px-4 py-2 hover:bg-opacity-90 text-white rounded transition-colors font-mono text-sm"
               style={{ backgroundColor: '#0F0909' }}
@@ -77,25 +69,14 @@ export default function ResumePage() {
 
         <div className="p-4">
           <div className="border-2 rounded-md overflow-auto max-h-[80vh] flex justify-center" style={{ borderColor: '#0F0909' }}>
-            <Document
-              file={pdfFile}
-              loading={
-                <div className="flex justify-center items-center h-64">
-                  <p style={{ color: '#0F0909' }}>Loading resume...</p>
-                </div>
-              }
-            >
-              <Page
-                pageNumber={1}
-                width={800}
-                renderTextLayer={false}
-                loading={
-                  <div className="flex justify-center items-center h-64">
-                    <p style={{ color: '#0F0909' }}>Loading page 1...</p>
-                  </div>
-                }
-              />
-            </Document>
+            <Image 
+              src={resumeImage}
+              alt="Chris Xu's Resume"
+              width={812}
+              height={1051} // Adjust based on your image aspect ratio
+              className="object-contain"
+              priority
+            />
           </div>
         </div>
 
