@@ -19,6 +19,11 @@ export default function ComputerPage() {
           setTimeout(() => {
             router.push('/aboutme');
           }, 500);
+        } else if (inputCommand.trim().toLowerCase() === "cd resume") {
+          setIsFading(true);
+          setTimeout(() => {
+            router.push('/resume');
+          }, 500);
         }
         setInputCommand("");
       } else if (e.key === "Backspace") {
