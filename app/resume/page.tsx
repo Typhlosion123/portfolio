@@ -39,10 +39,10 @@ export default function ResumePage() {
   }
 
   // Replace with your actual PDF file path
-  const pdfFile = "/Resume Docs 3-31-25 V1.docx.pdf"; 
+  const pdfFile = "../public/Resume Docs 3-31-25 V1.docx.pdf"; 
 
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-8 bg-black transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
+    <main className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-8 bg-0F0909 transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
       <div className="w-full max-w-4xl bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
         <div className="flex justify-between items-center p-4 bg-gray-800">
           <h1 className="text-white text-xl">resume.pdf</h1>
@@ -98,7 +98,7 @@ export default function ResumePage() {
         <div className="p-2 bg-gray-800 text-center text-gray-400 text-xs font-mono">
           Press ESC to return to terminal
         </div>
-      </div>
+    </div>
 
       <div className="absolute bottom-0 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
         © 2025 Chris Xu. All rights reserved.
