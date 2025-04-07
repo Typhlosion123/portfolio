@@ -8,15 +8,14 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setActiveModel(2); // After 7 seconds, switch to the second model
-    }, 7000);
+    }, 9000);
 
     return () => clearTimeout(timer); // Clean up the timer when the component unmounts
   }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-0 bg-black w-screen h-screen">
-      <h1 className="text-3xl font-bold mb-4 text-white absolute z-10">Spline 3D Model</h1>
-      <div className="w-2500 h-1100">
+      <div className="w-full h-full">
         {activeModel === 1 ? (
           <iframe
             src="https://my.spline.design/progressbarscrollevent-3aac3574d664080593953458a814650d/"
