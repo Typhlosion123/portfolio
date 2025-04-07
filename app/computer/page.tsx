@@ -24,6 +24,11 @@ export default function ComputerPage() {
           setTimeout(() => {
             router.push('/resume');
           }, 500);
+        } else if (inputCommand.trim().toLowerCase() === "cd chickenjockey") {
+          setIsFading(true);
+          setTimeout(() => {
+            window.location.href = "https://www.youtube.com/watch?v=vWQpiMd-v0A";
+          }, 500);
         }
         setInputCommand("");
       } else if (e.key === "Backspace") {

@@ -30,14 +30,31 @@ export default function AboutMe() {
       className="min-h-screen bg-[#0F0909] text-white flex items-center justify-center"
     >
       <div className="relative w-full max-w-6xl flex px-4">
-        {/* Close Button */}
-        <button
+        {/* Square Sticky Note Close Button */}
+        <motion.button
           onClick={handleClose}
-          className="absolute top-4 right-4 px-4 py-2 hover:bg-opacity-90 text-white rounded transition-colors font-mono text-sm z-10"
-          style={{ backgroundColor: '#0F0909' }}
+          className="absolute top-4 right-4 z-10"
+          style={{
+            backgroundColor: '#FEF3A2',
+            color: '#0F0909',
+            border: '1px solid #D9D38B',
+            boxShadow: '2px 2px 4px rgba(0,0,0,0.1)',
+            transform: 'rotate(2deg)',
+            width: '80px',
+            height: '80px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '0.5rem',
+            textAlign: 'center'
+          }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          Close (ESC)
-        </button>
+          <span className="font-mono" style={{ fontSize: '0.9rem' }}>Close</span>
+          <span className="font-mono" style={{ fontSize: '0.7rem' }}>(ESC)</span>
+        </motion.button>
 
         {/* Separator Line */}
         <div className="absolute left-1/2 transform -translate-x-[40%] w-px h-full bg-white" />
@@ -52,7 +69,7 @@ export default function AboutMe() {
               href="https://linkedin.com/in/chrisyxu"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline font-mono" style={{ color: '#227C9D' }}
+              className="hover:underline font-mono" style={{ color: '#ADD8E6' }}
             >
               /LinkedIn 
             </a>
@@ -60,9 +77,17 @@ export default function AboutMe() {
               href="https://github.com/Typhlosion123"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline font-mono" style={{ color: '#227C9D' }}
+              className="hover:underline font-mono" style={{ color: '#ADD8E6' }}
             >
               /GitHub
+            </a>
+            <a
+              href="https://chrisyxu.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-mono" style={{ color: '#ADD8E6' }}
+            >
+              /Website
             </a>
           </div>
         </div>
@@ -81,7 +106,7 @@ export default function AboutMe() {
                 Hello, I am Chris Xu. 
               </p>
               <p className="text-base leading-relaxed text-[#0F0909] mb-4">
-                I'm a first-year at UIUC studying computer engineering with plans to minor in either CS or semiconductors. Currently, I am interested in hardware-software integration as well as hardware system analysis.
+                I'm a first-year at UIUC studying computer engineering with plans to minor in either CS or semiconductors. I am interested in hardware-software integration as well as hardware system analysis.
               </p>
               <p className="text-base leading-relaxed text-[#0F0909] mb-4">
               Currently I am an engineer at Illinois Medical Advancements through Design and Engineering (i-MADE) as a software engineer on the Stealth team. Here, we are using muscle EMG from a wearable sensor to determine muscle fatigue and set length. 
