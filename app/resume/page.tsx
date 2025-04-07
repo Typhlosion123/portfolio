@@ -6,19 +6,19 @@ import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
-// Configure pdf.js worker path
+// Modern worker loading approach
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function ResumePage() {
   const [isFading, setIsFading] = useState(true);
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
-  // Fade in effect when component mounts
   useEffect(() => {
+    setIsClient(true);
     setIsFading(false);
   }, []);
 
-  // Handle back to computer command
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -33,8 +33,15 @@ export default function ResumePage() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [router]);
 
-  // Replace with your actual PDF file path
-  const pdfFile = "/resume.pdf"; // Place your PDF file in the public folder
+  const pdfFile = "/resume.pdf";
+
+  if (!isClient) {
+    return (
+      <div style={{ backgroundColor: '#0F0909', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <p style={{ color: '#B0AEA5' }}>Loading application...</p>
+      </div>
+    );
+  }
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-8 transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
@@ -42,7 +49,7 @@ export default function ResumePage() {
       
       <div className="w-full max-w-4xl rounded-lg shadow-2xl overflow-hidden" style={{ backgroundColor: '#B0AEA5' }}>
         <div className="flex justify-between items-center p-4" style={{ backgroundColor: '#EEF1DB' }}>
-          <h1 className="text-xl font-mono text-black" >Last updated: 3/31/2025</h1>
+          <h1 className="text-xl font-mono text-black">Last updated: 3/31/2025</h1>
           <div className="flex space-x-2">
             <a
               href={pdfFile}
