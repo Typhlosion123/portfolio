@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "target": "es5",
-    "module": "ES2015",
+    "module": "ESNext",
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
