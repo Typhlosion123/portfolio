@@ -40,7 +40,7 @@ export default function ResumePage() {
     <main className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-8 transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
       style={{ backgroundColor: '#0F0909' }}>
       
-      <div className="w-full max-w-4xl rounded-lg shadow-2xl overflow-hidden" style={{ backgroundColor: '#C9C7AF' }}>
+      <div className="w-full max-w-4xl rounded-lg shadow-2xl overflow-hidden" style={{ backgroundColor: '#EEF1DB' }}>
         <div className="flex justify-between items-center p-4" style={{ backgroundColor: '#B0AEA5' }}>
           <h1 className="text-xl font-mono text-black" >Last updated: 3/31/2025</h1>
           <div className="flex space-x-2">
@@ -89,12 +89,12 @@ export default function ResumePage() {
           </div>
         </div>
 
-        <div className="p-2 text-center text-xs font-mono" style={{ backgroundColor: '#B0AEA5', color: '#0F0909' }}>
+        <div className="p-2 text-center text-xs font-mono" style={{ backgroundColor: '#EEF1DB', color: '#0F0909' }}>
           Press ESC to return to terminal
         </div>
       </div>
 
-      <div className="absolute bottom-0 w-full text-center text-base py-5 bg-black/50 backdrop-blur-sm" style={{ color: '#C9C7AF' }}>
+      <div className="absolute bottom-0 w-full text-center text-base py-5 bg-black/50 backdrop-blur-sm" style={{ color: '#EEF1DB' }}>
         © 2025 Chris Xu. All rights reserved.
       </div>
     </main>
