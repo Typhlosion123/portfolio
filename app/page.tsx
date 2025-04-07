@@ -1,14 +1,18 @@
 export default function Home() {
   return (
-    <div style={{ height: '100vh', width: '100%', overflow: 'hidden' }}>
-      <iframe
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
-        <spline-viewer url="https://prod.spline.design/6UTcgkxAaa7nu36T/scene.splinecode"></spline-viewer>
-        frameBorder="0"
-        width="100%"
-        height="100%"
-        allow="autoplay; fullscreen"
-      />
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-center p-4">
+      <h1 className="text-3xl font-bold mb-4">Spline 3D Model</h1>
+      <div className="w-full h-[600px]">
+        <iframe
+          src="https://my.spline.design/thepc-de0c3202fab3683d455ead2170633d43/"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          allow="autoplay; fullscreen"
+        ></iframe>
+      </div>
+    </main>
   );
 }
+//SIMPLE TEST STUFF
+//more test
