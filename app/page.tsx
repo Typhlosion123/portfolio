@@ -7,7 +7,8 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const [activeModel, setActiveModel] = useState(1);
   const [inputCommand, setInputCommand] = useState("");
-  const [isFading, setIsFading] = useState(false); // State to trigger fade effect
+  const [isFading, setIsFading] = useState(false);
+  const [hasClicked, setHasClicked] = useState(false); // New state to track clicks
   const router = useRouter();
   const inputRef = useRef(null);
 
@@ -16,11 +17,10 @@ export default function Home() {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Enter") {
         if (inputCommand.trim().toLowerCase() === "cd aboutme") {
-          // Trigger fade effect
           setIsFading(true);
           setTimeout(() => {
-            router.push('/aboutme'); // Navigate after fade effect
-          }, 500); // Duration of fade effect (half a second)
+            router.push('/aboutme');
+          }, 500);
         }
         setInputCommand("");
       } else if (e.key === "Backspace") {
@@ -34,17 +34,32 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [inputCommand, router]);
 
-  // Model switching effect
+  // Modified model switching effect - now triggered by click
   useEffect(() => {
-    const timer = setTimeout(() => setActiveModel(2), 9000);
-    return () => clearTimeout(timer);
-  }, []);
+    let timer: NodeJS.Timeout;
+    
+    const handleClick = () => {
+      if (!hasClicked) {
+        setHasClicked(true);
+        timer = setTimeout(() => setActiveModel(2), 9000);
+      }
+    };
+
+    window.addEventListener('click', handleClick);
+    return () => {
+      window.removeEventListener('click', handleClick);
+      if (timer) clearTimeout(timer);
+    };
+  }, [hasClicked]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-0 bg-black w-screen h-screen relative">
       {/* Command display */}
       <div className="absolute top-0 left-0 z-50 p-4 text-white font-mono">
         {">"} {inputCommand}
+        {!hasClicked && (
+          <span className="ml-2 text-gray-400">(click anywhere to start)</span>
+        )}
       </div>
 
       {/* Hidden input to capture keyboard events */}
