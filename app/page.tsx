@@ -21,8 +21,8 @@ export default function Home() {
   useEffect(() => {
     const handleKeyDown = (e: { key: string | any[]; }) => {
       if (e.key === "Enter") {
-        if (typedCommand === "about_me") {
-          router.push("/about");
+        if (typedCommand === "cd aboutme") {
+          router.push("app/about.tsx");
         }
         setTypedCommand(""); // Reset either way
       } else if (e.key === "Backspace") {
