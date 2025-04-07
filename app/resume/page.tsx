@@ -34,18 +34,21 @@ export default function ResumePage() {
   }, [router]);
 
   // Replace with your actual PDF file path
-  const pdfFile = "public/Resume Docs 3-31-25 V1.docx.pdf"; // Place your PDF file in the public folder
+  const pdfFile = "/resume.pdf"; // Place your PDF file in the public folder
 
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-8 bg-0F0909 transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
-      <div className="w-full max-w-4xl bg-C9C7AF-900 rounded-lg shadow-2xl overflow-hidden">
-        <div className="flex justify-between items-center p-4 bg-gray-800">
-          <h1 className="text-white text-xl font-ubuntu">Last updated: 3/31/2025</h1>
+    <main className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-8 transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
+      style={{ backgroundColor: '#0F0909' }}>
+      
+      <div className="w-full max-w-4xl rounded-lg shadow-2xl overflow-hidden" style={{ backgroundColor: '#C9C7AF' }}>
+        <div className="flex justify-between items-center p-4" style={{ backgroundColor: '#B0AEA5' }}>
+          <h1 className="text-xl font-mono text-black" >Last updated: 3/31/2025</h1>
           <div className="flex space-x-2">
             <a
               href={pdfFile}
               download="Chris_Xu_Resume.pdf"
-              className="px-4 py-2 bg-456990-600 hover:bg-456990-700 text-white rounded transition-colors font-ubuntu text-sm"
+              className="px-4 py-2 hover:bg-opacity-90 text-white rounded transition-colors font-mono text-sm"
+              style={{ backgroundColor: '#0F0909' }}
             >
               Download
             </a>
@@ -54,20 +57,21 @@ export default function ResumePage() {
                 setIsFading(true);
                 setTimeout(() => router.push('/computer'), 500);
               }}
-              className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded transition-colors font-mono text-sm"
+              className="px-4 py-2 hover:bg-opacity-90 text-white rounded transition-colors font-mono text-sm"
+              style={{ backgroundColor: '#0F0909' }}
             >
               Close (ESC)
             </button>
           </div>
         </div>
 
-        <div className="p-4 bg-gray-900">
-          <div className="border-2 border-gray-700 rounded-md overflow-auto max-h-[80vh] flex justify-center">
+        <div className="p-4">
+          <div className="border-2 rounded-md overflow-auto max-h-[80vh] flex justify-center" style={{ borderColor: '#0F0909' }}>
             <Document
               file={pdfFile}
               loading={
                 <div className="flex justify-center items-center h-64">
-                  <p className="text-white">Loading resume...</p>
+                  <p style={{ color: '#0F0909' }}>Loading resume...</p>
                 </div>
               }
             >
@@ -77,7 +81,7 @@ export default function ResumePage() {
                 renderTextLayer={false}
                 loading={
                   <div className="flex justify-center items-center h-64">
-                    <p className="text-white">Loading page 1...</p>
+                    <p style={{ color: '#0F0909' }}>Loading page 1...</p>
                   </div>
                 }
               />
@@ -85,12 +89,12 @@ export default function ResumePage() {
           </div>
         </div>
 
-        <div className="p-2 bg-gray-800 text-center text-gray-400 text-xs font-mono">
+        <div className="p-2 text-center text-xs font-mono" style={{ backgroundColor: '#B0AEA5', color: '#0F0909' }}>
           Press ESC to return to terminal
         </div>
       </div>
 
-      <div className="absolute bottom-0 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
+      <div className="absolute bottom-0 w-full text-center text-base py-5 bg-black/50 backdrop-blur-sm" style={{ color: '#C9C7AF' }}>
         © 2025 Chris Xu. All rights reserved.
       </div>
     </main>
