@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 export default function AboutMe() {
   return (
@@ -16,12 +15,26 @@ export default function AboutMe() {
 
         {/* Left Side: Name and Contact */}
         <div className="w-1/2 pr-12 flex flex-col justify-center items-end text-right">
-          <h1 className="text-4xl font-bold mb-4">Chris Xu</h1>
-          <p className="text-lg">Email: cxu57@illinois.edu</p>
+          <h1 className="text-4xl font-bold mb-4">John Doe</h1>
+          <p className="text-lg">Email: john.doe@example.com</p>
           <div className="mt-4 space-y-2">
-            <Link to="/linkedin" className="text-white-400 hover:underline">www.linkedin.com/in/chrisyxu</Link>
+            <a
+              href="https://linkedin.com/in/chrisyxu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              /LinkedIn
+            </a>
             <br />
-            <Link to="/github" className="text-white-400 hover:underline">https://github.com/Typhlosion123</Link>
+            <a
+              href="https://github.com/Typhlosion123"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              /GitHub
+            </a>
           </div>
         </div>
 
