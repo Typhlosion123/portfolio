@@ -22,7 +22,7 @@ export default function Home() {
     const handleKeyDown = (e: { key: string | any[]; }) => {
       if (e.key === "Enter") {
         if (typedCommand === "cd aboutme") {
-          router.push("app/about.tsx");
+          router.push("app/aboutme.tsx");
         }
         setTypedCommand(""); // Reset either way
       } else if (e.key === "Backspace") {
