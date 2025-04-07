@@ -9,7 +9,7 @@ export default function AboutMe() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="min-h-screen bg-[#0F0909] text-white flex items-center justify-center font-ubuntu"
+      className="min-h-screen bg-[#0F0909] text-white flex items-center justify-center"
     >
       <div className="relative w-full max-w-6xl flex px-4">
         {/* Separator Line */}
