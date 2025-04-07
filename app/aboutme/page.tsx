@@ -9,7 +9,7 @@ export default function AboutMe() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="min-h-screen bg-[#0F0909] text-white flex items-center justify-center"
+      className="min-h-screen bg-[#0F0909] text-white flex items-center justify-center font-ubuntu"
     >
       <div className="relative w-full max-w-6xl flex px-4">
         {/* Separator Line */}
@@ -24,16 +24,15 @@ export default function AboutMe() {
               href="https://linkedin.com/in/chrisyxu"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:underline"
+              className="text-white-400 hover:underline"
             >
               /LinkedIn
             </a>
-            <br />
             <a
               href="https://github.com/Typhlosion123"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:underline"
+              className="text-white-400 hover:underline"
             >
               /GitHub
             </a>

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/ubuntu": "^5.2.5",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.82",
     "motion": "^12.6.3",
