@@ -7,16 +7,20 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const [activeModel, setActiveModel] = useState(1);
   const [inputCommand, setInputCommand] = useState("");
+  const [isFading, setIsFading] = useState(false); // State to trigger fade effect
   const router = useRouter();
   const inputRef = useRef(null);
-
 
   // Handle keyboard input
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Enter") {
         if (inputCommand.trim().toLowerCase() === "cd aboutme") {
-          router.push('/aboutme');
+          // Trigger fade effect
+          setIsFading(true);
+          setTimeout(() => {
+            router.push('/aboutme'); // Navigate after fade effect
+          }, 500); // Duration of fade effect (half a second)
         }
         setInputCommand("");
       } else if (e.key === "Backspace") {
@@ -66,6 +70,12 @@ export default function Home() {
           />
         )}
       </div>
+
+      {/* Fade effect */}
+      <div
+        className={`absolute top-0 left-0 w-full h-full bg-black transition-opacity duration-500 ${isFading ? 'opacity-100' : 'opacity-0'}`}
+      ></div>
+
       <div className="absolute bottom-0 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
         © 2025 Chris Xu. All rights reserved.
       </div>
