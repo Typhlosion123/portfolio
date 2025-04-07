@@ -37,15 +37,15 @@ export default function ResumePage() {
   const pdfFile = "public/Resume Docs 3-31-25 V1.docx.pdf"; // Place your PDF file in the public folder
 
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-8 bg-black transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
-      <div className="w-full max-w-4xl bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
+    <main className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-8 bg-0F0909 transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
+      <div className="w-full max-w-4xl bg-C9C7AF-900 rounded-lg shadow-2xl overflow-hidden">
         <div className="flex justify-between items-center p-4 bg-gray-800">
-          <h1 className="text-white text-xl font-mono">Last updated: 3/31/2025</h1>
+          <h1 className="text-white text-xl font-ubuntu">Last updated: 3/31/2025</h1>
           <div className="flex space-x-2">
             <a
               href={pdfFile}
               download="Chris_Xu_Resume.pdf"
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-colors font-mono text-sm"
+              className="px-4 py-2 bg-456990-600 hover:bg-456990-700 text-white rounded transition-colors font-ubuntu text-sm"
             >
               Download
             </a>
