@@ -66,6 +66,9 @@ export default function Home() {
           />
         )}
       </div>
+      <div className="absolute bottom-0 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
+        © 2025 Chris Xu. All rights reserved.
+      </div>
     </main>
   );
 }

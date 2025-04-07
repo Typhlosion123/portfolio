@@ -11,7 +11,7 @@ export default function About() {
       ></iframe>
 
       {/* Subbar */}
-      <div className="absolute bottom-0 w-full text-center text-white text-sm py-2 bg-black/50 backdrop-blur-sm">
+      <div className="absolute bottom-0 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
         © 2025 Chris Xu. All rights reserved.
       </div>
     </main>
