@@ -68,13 +68,13 @@ export default function ResumePage() {
         </div>
 
         <div className="p-4">
-          <div className="border-2 rounded-md overflow-auto max-h-[80vh] flex justify-center" style={{ borderColor: '#0F0909' }}>
+          <div className="border-2 rounded-md overflow-auto max-h-[80vh] flex justify-center pt-4" style={{ borderColor: '#0F0909' }}>
             <Image 
               src={resumeImage}
               alt="Chris Xu's Resume"
               width={812}
               height={1051} // Adjust based on your image aspect ratio
-              className="object-contain mt-4"
+              className="object-contain"
               priority
             />
           </div>
