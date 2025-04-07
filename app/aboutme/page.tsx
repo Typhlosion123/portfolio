@@ -19,7 +19,7 @@ export default function AboutMe() {
         <div className="w-1/2 pr-12 flex flex-col justify-center items-end text-right">
           <h1 className="text-4xl font-bold mb-4">Chris Xu</h1>
           <p className="text-lg">Email: cxu57@illinois.edu</p>
-          <div className="mt-4 space-y-100">
+          <div className="mt-4 space-y-25">
             <a
               href="https://linkedin.com/in/chrisyxu"
               target="_blank"
