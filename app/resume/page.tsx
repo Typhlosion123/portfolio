@@ -74,7 +74,7 @@ export default function ResumePage() {
               alt="Chris Xu's Resume"
               width={812}
               height={1051} // Adjust based on your image aspect ratio
-              className="object-contain"
+              className="object-contain mt-4"
               priority
             />
           </div>
