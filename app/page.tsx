@@ -21,7 +21,7 @@ export default function Home() {
             src="https://my.spline.design/progressbarscrollevent-3aac3574d664080593953458a814650d/"
             frameBorder="0"
             className="w-full h-full"
-            allow="autoplay; fullscreen"
+            //allow="autoplay; fullscreen"
           ></iframe>
         ) : (
           <iframe
