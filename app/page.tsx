@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Spline from '@splinetool/react-spline';
 import { useRouter } from "next/navigation";
 
@@ -8,20 +8,20 @@ export default function Home() {
   const [activeModel, setActiveModel] = useState(1);
   const [inputCommand, setInputCommand] = useState("");
   const router = useRouter();
+  const inputRef = useRef(null);
+
 
   // Handle keyboard input
   useEffect(() => {
-    const handleKeyPress = (e: { key: string | any[]; preventDefault: () => void; }) => {
+    const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Enter") {
         if (inputCommand.trim().toLowerCase() === "cd aboutme") {
           router.push('/aboutme');
-          window.history.pushState({}, '', '/aboutme');
         }
-        setInputCommand(""); // Clear input on Enter
+        setInputCommand("");
       } else if (e.key === "Backspace") {
-        setInputCommand(prev => prev.slice(0, -1));
-        e.preventDefault();
-      } else if (e.key.length === 1) {
+        setInputCommand("");
+      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
         setInputCommand(prev => prev + e.key);
       }
     };
@@ -38,17 +38,18 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-0 bg-black w-screen h-screen relative">
-      {/* Hidden command input display */}
-      <div className="absolute top-0 left-0 z-50 p-4 text-white font-mono pointer-events-none">
+      {/* Command display */}
+      <div className="absolute top-0 left-0 z-50 p-4 text-white font-mono">
         {">"} {inputCommand}
       </div>
 
       {/* Hidden input to capture keyboard events */}
       <input
+        ref={inputRef}
         type="text"
-        autoFocus
         className="absolute opacity-0 w-0 h-0"
-        onBlur={({ target }) => target.focus()}
+        value={inputCommand}
+        onChange={(e) => setInputCommand(e.target.value)}
       />
 
       {/* Spline models */}
