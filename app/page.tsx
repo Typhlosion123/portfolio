@@ -1,80 +1,42 @@
 'use client';
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Spline from '@splinetool/react-spline';
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [activeModel, setActiveModel] = useState(1);
-  const [inputCommand, setInputCommand] = useState("");
-  const [isFading, setIsFading] = useState(false); // State to trigger fade effect
   const router = useRouter();
-  const inputRef = useRef(null);
+  const [timerStarted, setTimerStarted] = useState(false);
 
-  // Handle keyboard input
+  // Start timer on click
+  const handleClick = () => {
+    if (!timerStarted) {
+      setTimerStarted(true);
+    }
+  };
+
+  // Redirect after 9 seconds if timer was started
   useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        if (inputCommand.trim().toLowerCase() === "cd aboutme") {
-          // Trigger fade effect
-          setIsFading(true);
-          setTimeout(() => {
-            router.push('/aboutme'); // Navigate after fade effect
-          }, 500); // Duration of fade effect (half a second)
-        }
-        setInputCommand("");
-      } else if (e.key === "Backspace") {
-        setInputCommand("");
-      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
-        setInputCommand(prev => prev + e.key);
-      }
-    };
+    if (!timerStarted) return;
+    
+    const timer = setTimeout(() => {
+      router.push('/computer');
+    }, 9000);
 
-    window.addEventListener("keydown", handleKeyPress);
-    return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [inputCommand, router]);
-
-  // Model switching effect
-  useEffect(() => {
-    const timer = setTimeout(() => setActiveModel(2), 9000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [timerStarted, router]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-0 bg-black w-screen h-screen relative">
-      {/* Command display */}
-      <div className="absolute top-0 left-0 z-50 p-4 text-white font-mono">
-        {">"} {inputCommand}
-      </div>
-
-      {/* Hidden input to capture keyboard events */}
-      <input
-        ref={inputRef}
-        type="text"
-        className="absolute opacity-0 w-0 h-0"
-        value={inputCommand}
-        onChange={(e) => setInputCommand(e.target.value)}
-      />
-
-      {/* Spline models */}
+    <main 
+      className="flex min-h-screen flex-col items-center justify-center p-0 bg-black w-screen h-screen relative cursor-pointer"
+      onClick={handleClick}
+    >
       <div className="w-full h-full">
-        {activeModel === 1 ? (
-          <Spline
-            scene="https://prod.spline.design/7JTroMEqlN2ok6WN/scene.splinecode"
-            className="w-full h-full"
-          />
-        ) : (
-          <Spline
-            scene="https://prod.spline.design/6UTcgkxAaa7nu36T/scene.splinecode"
-            className="w-full h-full"
-          />
-        )}
+        <Spline
+          scene="https://prod.spline.design/7JTroMEqlN2ok6WN/scene.splinecode"
+          className="w-full h-full"
+        />
       </div>
-
-      {/* Fade effect */}
-      <div
-        className={`absolute top-0 left-0 w-full h-full bg-black transition-opacity duration-500 ${isFading ? 'opacity-100' : 'opacity-0'}`}
-      ></div>
 
       <div className="absolute bottom-0 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
         © 2025 Chris Xu. All rights reserved.
