@@ -121,65 +121,65 @@ export default function ComputerPage() {
 
       {/* File structure display */}
       {showFileStructure && (
-        <div className={` z-50 text-white font-mono bg-black/80 rounded-lg border-6 border-[#F9F6EE] transition-all  ${
-          fileStructurePosition === "left" 
-            ? "absolute top-60 left-140 p-6 duration-3000 ease-in" 
-            : "absolute top-110 left-15 p-8 w-[80rm] duration-1000 ease-in-out" 
-        }`} style={{ opacity: fileStructureOpacity }}>
-          <div className={`mb-4 ${fileStructurePosition === "right" ? "text-3xl" : "text-xl"}`}>File Structure:</div>
-          <div className={fileStructurePosition === "left" ? "text-xl" : "text-3xl"}>
+        <div className={`z-50 text-white font-mono bg-black/80 rounded-lg border-6 border-[#F9F6EE] transition-all ${
+        fileStructurePosition === "left" 
+              ? "fixed top-[20vh] left-[21vw] p-6 duration-3000 ease-in" 
+              : "fixed top-[30vh] left-[5vw] p-6 w-[25vw] duration-1000 ease-in-out" 
+           }`} style={{ opacity: fileStructureOpacity }}>
+            <div className={`mb-4 ${fileStructurePosition === "right" ? "text-3xl" : "text-2xl"}`}>File Structure:</div>
+            <div className={fileStructurePosition === "left" ? "text-xl" : "text-2xl"}>
             <div>/home(current)</div>
             <div className="ml-4 space-y-2 mt-2">
               <button 
-                onClick={() => {
-                 navigateTo('aboutme')
+               onClick={() => {
+                  navigateTo('aboutme')
                  setShowFileStructure(false);
-                }} 
-                className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
+               }} 
+               className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
               >
                 |-aboutme
               </button>
-              <button 
+             <button 
                 onClick={() => {
-                  navigateTo('resume')
-                 setShowFileStructure(false);
-                }} 
-               className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-              >
-                |-resume
-              </button>
-              <button 
-               onClick={() => {
-                  navigateTo('projects')
+                 navigateTo('resume')
                   setShowFileStructure(false);
                 }} 
-               className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-              >
-                |-projects
-              </button>
-              <button 
-                onClick={() => {
-                 navigateTo('experience')
-                 setShowFileStructure(false);
-               }} 
                 className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-              >
-               |-experience
-             </button>
-            </div>
-         </div>
-          <p className={`font-mono text-white mt-6 ${
-            fileStructurePosition === "left" ? "text-xl" : "text-3xl"
-          }`}>
-            Click to navigate or type <span className="text-yellow-300">cd (folder)</span>
-          </p>
-          <p className={`font-mono text-white mt-6 ${
-            fileStructurePosition === "left" ? "text-xl" : "text-3xl"
-          }`}>
-            Try it with <span className="text-yellow-300">cd funfact</span>! (zoom only)
-          </p>
-       </div>
-      )}
+             >
+                |-resume
+              </button>
+        <button 
+          onClick={() => {
+            navigateTo('projects')
+            setShowFileStructure(false);
+          }} 
+          className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
+        >
+          |-projects
+        </button>
+        <button 
+          onClick={() => {
+            navigateTo('experience')
+            setShowFileStructure(false);
+          }} 
+          className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
+        >
+          |-experience
+        </button>
+      </div>
+    </div>
+    <p className={`font-mono text-white mt-6 ${
+      fileStructurePosition === "left" ? "text-xl" : "text-2xl"
+    }`}>
+      Click to navigate or type <span className="text-yellow-300">cd (folder)</span>
+    </p>
+    <p className={`font-mono text-white mt-6 ${
+      fileStructurePosition === "left" ? "text-xl" : "text-2xl"
+    }`}>
+      Try it with <span className="text-yellow-300">cd funfact</span>! (zoom only)
+    </p>
+  </div>
+)}
 
       {/* Hidden input to capture keyboard events */}
       <input
