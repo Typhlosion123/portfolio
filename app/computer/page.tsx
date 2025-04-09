@@ -133,12 +133,12 @@ export default function ComputerPage() {
     style={{ opacity: fileStructureOpacity }}
   >
     <div className={`mb-3 font-bold ${
-      fileStructurePosition === "left" ? "text-2xl" : "text-3xl"
+      fileStructurePosition === "left" ? "text-2xl" : "text-2xl"
     }`}>
       File Structure:
     </div>
     
-    <div className={fileStructurePosition === "left" ? "text-2xl" : "text-3xl"}>
+    <div className={fileStructurePosition === "left" ? "text-2xl" : "text-2xl"}>
       <div>/home(current)</div>
       <div className="ml-4 space-y-1 mt-2">
         <button 
@@ -181,13 +181,13 @@ export default function ComputerPage() {
     </div>
     
     <p className={`font-mono text-white mt-3 ${
-      fileStructurePosition === "left" ? "text-xl" : "text-2xl"
+      fileStructurePosition === "left" ? "text-lg" : "text-xl"
     }`}>
       Click to navigate or type <span className="text-yellow-300">cd (folder)</span>
     </p>
     
     <p className={`font-mono text-white mt-2 ${
-      fileStructurePosition === "left" ? "text-xl" : "text-2xl"
+      fileStructurePosition === "left" ? "text-lg" : "text-xl"
     }`}>
       Try it with <span className="text-yellow-300">cd funfact</span>! (zoom only)
     </p>
