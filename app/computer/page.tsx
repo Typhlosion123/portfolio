@@ -82,7 +82,10 @@ export default function ComputerPage() {
             setShowFunFact(false);
           }, 3000);
         } else if (inputCommand.trim().toLowerCase() === "cd chickenjockey") {
-          window.location.href = "https://www.youtube.com/watch?v=ow4UaDxxkSA";
+          const chickenSound = new Audio('/chickenjockey.mp3'); // Assumes file is in the public folder
+          chickenSound.play().catch(error => {
+            console.error("Sound playback failed:", error);
+          });
         }
         setInputCommand("");
       } else if (e.key === "Backspace") {
@@ -123,7 +126,7 @@ export default function ComputerPage() {
       {showFileStructure && (
         <div className={`z-50 text-white font-mono bg-black/80 rounded-lg border-6 border-[#F9F6EE] transition-all ${
         fileStructurePosition === "left" 
-              ? "fixed top-[20vh] left-[21vw] p-6 duration-3000 ease-in" 
+              ? "fixed top-[20vh] left-[20vw] p-6 duration-3000 ease-in" 
               : "fixed top-[30vh] left-[5vw] p-6 w-[25vw] duration-1000 ease-in-out" 
            }`} style={{ opacity: fileStructureOpacity }}>
             <div className={`mb-4 ${fileStructurePosition === "right" ? "text-3xl" : "text-2xl"}`}>File Structure:</div>

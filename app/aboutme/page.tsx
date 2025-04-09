@@ -57,7 +57,7 @@ export default function AboutMe() {
         </motion.button>
 
         {/* Separator Line */}
-        <div className="absolute left-1/2 transform -translate-x-[40%] w-px h-full bg-white" />
+        <div className="absolute left-1/2 transform -translate-x-[50%] w-px h-full bg-white" />
 
         {/* Left Side: Name and Contact */}
         <div className="w-1/2 pr-12 flex flex-col justify-center items-end text-right">
