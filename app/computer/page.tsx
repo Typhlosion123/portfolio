@@ -118,39 +118,47 @@ export default function ComputerPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-0 bg-black w-screen h-screen relative">
       {/* Command display */}
-      <div className="absolute top-0 left-0 z-50 p-4 text-white font-mono">
+      {/* <div className="absolute top-0 left-0 z-50 p-4 text-white font-mono">
         {">"} {inputCommand}
-      </div>
+      </div> */}
 
       {/* File structure display */}
       {showFileStructure && (
-        <div className={`z-50 text-white font-mono bg-black/80 rounded-lg border-6 border-[#F9F6EE] transition-all ${
-        fileStructurePosition === "left" 
-              ? "fixed top-[20vh] left-[20vw] p-6 duration-3000 ease-in" 
-              : "fixed top-[30vh] left-[5vw] p-6 w-[25vw] duration-1000 ease-in-out" 
-           }`} style={{ opacity: fileStructureOpacity }}>
-            <div className={`mb-4 ${fileStructurePosition === "right" ? "text-3xl" : "text-2xl"}`}>File Structure:</div>
-            <div className={fileStructurePosition === "left" ? "text-xl" : "text-2xl"}>
-            <div>/home(current)</div>
-            <div className="ml-4 space-y-2 mt-2">
-              <button 
-               onClick={() => {
-                  navigateTo('aboutme')
-                 setShowFileStructure(false);
-               }} 
-               className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-              >
-                |-aboutme
-              </button>
-             <button 
-                onClick={() => {
-                 navigateTo('resume')
-                  setShowFileStructure(false);
-                }} 
-                className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-             >
-                |-resume
-              </button>
+  <div 
+    className={`z-50 text-white font-mono bg-black/80 rounded-lg border-4 border-[#F9F6EE] fixed p-4 transition-all ${
+      fileStructurePosition === "left" 
+        ? "top-4 left-4 duration-3000 ease-in" 
+        : "top-1/2 -translate-y-1/2 left-[2vw] duration-1000 ease-in-out"
+    }`}
+    style={{ opacity: fileStructureOpacity }}
+  >
+    <div className={`mb-3 font-bold ${
+      fileStructurePosition === "left" ? "text-2xl" : "text-3xl"
+    }`}>
+      File Structure:
+    </div>
+    
+    <div className={fileStructurePosition === "left" ? "text-2xl" : "text-3xl"}>
+      <div>/home(current)</div>
+      <div className="ml-4 space-y-1 mt-2">
+        <button 
+          onClick={() => {
+            navigateTo('aboutme')
+            setShowFileStructure(false);
+          }} 
+          className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
+        >
+          |-aboutme
+        </button>
+        <button 
+          onClick={() => {
+            navigateTo('resume')
+            setShowFileStructure(false);
+          }} 
+          className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
+        >
+          |-resume
+        </button>
         <button 
           onClick={() => {
             navigateTo('projects')
@@ -171,19 +179,20 @@ export default function ComputerPage() {
         </button>
       </div>
     </div>
-    <p className={`font-mono text-white mt-6 ${
+    
+    <p className={`font-mono text-white mt-3 ${
       fileStructurePosition === "left" ? "text-xl" : "text-2xl"
     }`}>
       Click to navigate or type <span className="text-yellow-300">cd (folder)</span>
     </p>
-    <p className={`font-mono text-white mt-6 ${
+    
+    <p className={`font-mono text-white mt-2 ${
       fileStructurePosition === "left" ? "text-xl" : "text-2xl"
     }`}>
       Try it with <span className="text-yellow-300">cd funfact</span>! (zoom only)
     </p>
   </div>
 )}
-
       {/* Hidden input to capture keyboard events */}
       <input
         ref={inputRef}
