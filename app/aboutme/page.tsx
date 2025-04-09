@@ -82,7 +82,7 @@ export default function AboutMe() {
               /GitHub
             </a>
             <a
-              href="https://chrisyxu.com"
+              href="https://www.chrisyxu.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline font-mono" style={{ color: '#ADD8E6' }}
