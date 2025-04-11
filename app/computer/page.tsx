@@ -15,6 +15,18 @@ export default function ComputerPage() {
   const router = useRouter();
   const inputRef = useRef(null);
 
+  const [showFooter, setShowFooter] = useState(true);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 50;
+    setShowFooter(bottom);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
   const funFacts = [
     "Fun Fact: I've visited over 15 countries!",
     "Fun Fact: I can bench 225!",
@@ -124,74 +136,71 @@ export default function ComputerPage() {
 
       {/* File structure display */}
       {showFileStructure && (
-  <div 
-    className={`z-50 text-white font-mono bg-black/80 rounded-lg border-4 border-[#F9F6EE] fixed p-4 transition-all ${
-      fileStructurePosition === "left" 
-        ? "top-4 left-4 duration-3000 ease-in" 
-        : "top-1/2 -translate-y-1/2 left-[2vw] duration-1000 ease-in-out"
-    }`}
-    style={{ opacity: fileStructureOpacity }}
-  >
-    <div className={`mb-3 font-bold ${
-      fileStructurePosition === "left" ? "text-2xl" : "text-2xl"
-    }`}>
-      File Structure:
-    </div>
-    
-    <div className={fileStructurePosition === "left" ? "text-2xl" : "text-2xl"}>
-      <div>/home(current)</div>
-      <div className="ml-4 space-y-1 mt-2">
-        <button 
-          onClick={() => {
-            navigateTo('aboutme')
-            setShowFileStructure(false);
-          }} 
-          className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-        >
-          |-aboutme
-        </button>
-        <button 
-          onClick={() => {
-            navigateTo('resume')
-            setShowFileStructure(false);
-          }} 
-          className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-        >
-          |-resume
-        </button>
-        <button 
-          onClick={() => {
-            navigateTo('projects')
-            setShowFileStructure(false);
-          }} 
-          className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-        >
-          |-projects
-        </button>
-        <button 
-          onClick={() => {
-            navigateTo('experience')
-            setShowFileStructure(false);
-          }} 
-          className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left"
-        >
-          |-experience
-        </button>
-      </div>
-    </div>
-    
-    <p className={`font-mono text-white mt-3 ${
-      fileStructurePosition === "left" ? "text-lg" : "text-xl"
-    }`}>
-      Click to navigate or type <span className="text-yellow-300">cd (folder)</span>
-    </p>
-    
-    <p className={`font-mono text-white mt-2 ${
-      fileStructurePosition === "left" ? "text-lg" : "text-xl"
-    }`}>
-      Try it with <span className="text-yellow-300">cd funfact</span>! (zoom only)
-    </p>
-  </div>
+ <div 
+ className={`z-50 text-white font-mono bg-black/80 rounded-lg border-4 border-[#F9F6EE] fixed transition-all max-w-[90vw] md:max-w-md ${
+   fileStructurePosition === "left" 
+     ? "top-4 left-4 duration-3000 ease-in p-3 md:p-4" 
+     : "top-1/2 -translate-y-1/2 left-[2vw] duration-1000 ease-in-out p-2 md:p-4"
+ }`}
+ style={{ 
+   opacity: fileStructureOpacity,
+   fontSize: 'clamp(.5rem, 1.5vw, 10rem)'
+ }}
+>
+ <div className="mb-2 md:mb-3 font-bold text-2xl md:text-xl lg:text-2xl">
+   File Structure:
+ </div>
+ 
+ <div className="text-sm md:text-base lg:text-xl overflow-y-auto max-h-[60vh]">
+   <div>/home(current)</div>
+   <div className="ml-3 md:ml-4 space-y-0.5 md:space-y-1 mt-1 md:mt-2">
+     <button 
+       onClick={() => {
+         navigateTo('aboutme')
+         setShowFileStructure(false);
+       }} 
+       className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
+     >
+       |-aboutme
+     </button>
+     <button 
+       onClick={() => {
+         navigateTo('resume')
+         setShowFileStructure(false);
+       }} 
+       className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
+     >
+       |-resume
+     </button>
+     <button 
+       onClick={() => {
+         navigateTo('projects')
+         setShowFileStructure(false);
+       }} 
+       className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
+     >
+       |-projects
+     </button>
+     <button 
+       onClick={() => {
+         navigateTo('experience')
+         setShowFileStructure(false);
+       }} 
+       className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
+     >
+       |-experience
+     </button>
+   </div>
+ </div>
+ 
+ <p className="font-mono text-white mt-2 md:mt-3 text-xs md:text-sm lg:text-base">
+   Click to navigate or type <span className="text-yellow-300">cd (folder)</span>
+ </p>
+ 
+ <p className="font-mono text-white mt-1 md:mt-2 text-xs md:text-sm lg:text-base">
+   Try it with <span className="text-yellow-300">cd funfact</span>! (zoom only)
+ </p>
+</div>
 )}
       {/* Hidden input to capture keyboard events */}
       <input
@@ -211,19 +220,24 @@ export default function ComputerPage() {
       </div>
 
       {showFunFact && (
-        <div className="absolute top-120 left-225 z-50 bg-black text-white p-6 rounded-lg text-3xl animate-pulse text-center font-mono bg-transparent backdrop-filter-none">
-          {currentFunFact}
-        </div>
-      )}
+  <div className="fixed inset-0 flex justify-center z-50" style={{ top: '40%' }}>
+    <div className="bg-black text-white p-6 rounded-lg text-2xl animate-pulse text-center font-mono bg-transparent max-w-4xl mx-auto">
+      {currentFunFact}
+    </div>
+  </div>
+)}
 
       {/* Fade effect */}
       <div
         className={`absolute top-0 left-0 w-full h-full bg-transparent transition-opacity duration-500 ${isFading ? 'opacity-100' : 'opacity-0'}`}
       ></div>
 
-      <div className="absolute bottom-0 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
-        © 2025 Chris Xu. All rights reserved.
-      </div>
+<div 
+  className={`fixed bottom-0 left-0 w-full ${showFooter ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+  style={{ boxShadow: '0 -2px 10px rgba(0,0,0,0.3)' }}
+>
+  © 2025 Chris Xu. All rights reserved.
+</div>
     </main>
   );
 }
