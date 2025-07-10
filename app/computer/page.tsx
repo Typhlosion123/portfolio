@@ -194,7 +194,7 @@ useEffect(() => {
  </div>
  
  <p className="font-mono text-white mt-2 md:mt-3 text-xs md:text-sm lg:text-base">
-   Click to navigate or type <span className="text-yellow-300">cd (folder)</span>
+   Click to navigate or type <span className="text-yellow-300">cd "folder-name"</span> (i.e cd aboutme) 
  </p>
  
  <p className="font-mono text-white mt-1 md:mt-2 text-xs md:text-sm lg:text-base">
