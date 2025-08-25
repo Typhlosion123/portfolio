@@ -233,7 +233,7 @@ useEffect(() => {
       ></div>
 
 <div 
-  className={`fixed bottom-0 left-0 w-full ${showFooter ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+  className={`fixed bottom-0 left-0 w-full opacity-50 transition-opacity duration-300`}
   style={{ boxShadow: '0 -2px 10px rgba(0,0,0,0.3)' }}
 >
   © 2025 Chris Xu. All rights reserved.

@@ -114,10 +114,11 @@ export default function ResumePage() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 w-full text-center text-base py-5 bg-black/50 backdrop-blur-sm" style={{ color: '#FFFFFF' }}>
-          © 2025 Chris Xu. All rights reserved.
-        </div>
+        
       </main>
+      {/* <div className="absolute bottom-0 w-full text-center text-base py-5" style={{ color: '#FFFFFF' }}>
+          © 2025 Chris Xu. All rights reserved.
+        </div> */}
     </div>
   );
 }
