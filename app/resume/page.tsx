@@ -91,7 +91,7 @@ export default function ResumePage() {
               Download PDF
             </a>
             <h1 className="text-xl font-mono text-black absolute left-1/2 transform -translate-x-1/2">
-              Last updated: 7/9/2025
+              Last updated: 9/13/2025
             </h1>
           </div>
 
