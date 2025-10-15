@@ -53,9 +53,9 @@ export default function Home() {
       )}
 
       {/* Footer above Spline too */}
-      <div className="absolute bottom-0 z-10 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
+      {/* <div className="absolute bottom-0 z-10 w-full text-center text-white text-base py-5 bg-black/50 backdrop-blur-sm">
         © 2025 Chris Xu. All rights reserved.
-      </div>
+      </div> */}
     </main>
   );
 }
