@@ -83,7 +83,7 @@ export default function ResumePage() {
 
           <div className="flex justify-between items-center p-4" style={{ backgroundColor: '#EEF1DB' }}>
             <a
-              href="/resume.pdf"
+              href="Chris_Xu_Resume_10_10_2025.pdf"
               download="Chris_Xu_Resume.pdf"
               className="px-4 py-2 hover:bg-opacity-90 text-white rounded transition-colors font-mono text-sm"
               style={{ backgroundColor: '#0F0909' }}
@@ -91,7 +91,7 @@ export default function ResumePage() {
               Download PDF
             </a>
             <h1 className="text-xl font-mono text-black absolute left-1/2 transform -translate-x-1/2">
-              Last updated: 9/13/2025
+              Last updated: 11/7/2025
             </h1>
           </div>
 
