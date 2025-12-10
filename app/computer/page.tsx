@@ -80,6 +80,12 @@ useEffect(() => {
           setTimeout(() => {
             router.push('/projects');
           }, 500);
+        } else if (inputCommand.trim().toLowerCase() === "cd audio") {
+          setShowFileStructure(false);
+          setIsFading(true);
+          setTimeout(() => {
+            router.push('/projects/audio-engine');
+          }, 500);
         } else if (inputCommand.trim().toLowerCase() === "cd experience") {
           setShowFileStructure(false);
           setIsFading(true);
@@ -161,7 +167,7 @@ useEffect(() => {
        }} 
        className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
      >
-       |-aboutme
+       |-about
      </button>
      <button 
        onClick={() => {
@@ -180,6 +186,15 @@ useEffect(() => {
        className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
      >
        |-projects
+     </button>
+     <button 
+       onClick={() => {
+         navigateTo('projects/audio-engine')
+         setShowFileStructure(false);
+       }} 
+       className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
+     >
+      ..|-audio
      </button>
      <button 
        onClick={() => {
