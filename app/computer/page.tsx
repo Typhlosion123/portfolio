@@ -104,6 +104,12 @@ useEffect(() => {
           chickenSound.play().catch(error => {
             console.error("Sound playback failed:", error);
           });
+        } else if (inputCommand.trim().toLowerCase() == "cd alexa") {
+          setShowFileStructure(false);
+          setIsFading(true);
+          setTimeout(() => {
+            router.push('/valentine');
+          }, 500);
         }
         setInputCommand("");
       } else if (e.key === "Backspace") {

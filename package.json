@@ -12,6 +12,7 @@
     "@fontsource/ubuntu": "^5.2.5",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.82",
+    "lucide-react": "^0.563.0",
     "motion": "^12.6.3",
     "next": "15.2.6",
     "pdfjs-dist": "^3.11.174",
