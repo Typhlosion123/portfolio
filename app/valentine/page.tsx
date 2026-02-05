@@ -22,15 +22,13 @@ const ValentinePage = () => {
     "Will you be my valentine?",
     "Are you sure?",
     "Are you really sure?",
-    "Please think about it!",
+    "I'll give you a cookie!",
     "Don't do this to me :(",
-    "I'll give you a cookie!",
-    "You're breaking my heart!",
     "Okay, I'll stop asking... JUST KIDDING YES PLS",
-    "I'll give you a cookie!",
+    "I'll give you a cookie! (Part 2)",
     "Change your mind?",
     "Is that your final answer?",
-    
+    "No way thats your final answer...right...?",
   ];
 
   const handleNoClick = () => {
