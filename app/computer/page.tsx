@@ -173,7 +173,7 @@ useEffect(() => {
        }} 
        className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
      >
-       |-about
+       |-aboutme
      </button>
      <button 
        onClick={() => {
