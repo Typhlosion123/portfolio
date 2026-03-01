@@ -80,6 +80,12 @@ useEffect(() => {
           setTimeout(() => {
             router.push('/projects');
           }, 500);
+        } else if (inputCommand.trim().toLowerCase() === "cd audio") {
+          setShowFileStructure(false);
+          setIsFading(true);
+          setTimeout(() => {
+            router.push('/projects/audio-engine');
+          }, 500);
         } else if (inputCommand.trim().toLowerCase() === "cd experience") {
           setShowFileStructure(false);
           setIsFading(true);
@@ -98,6 +104,12 @@ useEffect(() => {
           chickenSound.play().catch(error => {
             console.error("Sound playback failed:", error);
           });
+        } else if (inputCommand.trim().toLowerCase() == "cd alexa") {
+          setShowFileStructure(false);
+          setIsFading(true);
+          setTimeout(() => {
+            router.push('/valentine');
+          }, 500);
         }
         setInputCommand("");
       } else if (e.key === "Backspace") {
@@ -183,6 +195,15 @@ useEffect(() => {
      </button>
      <button 
        onClick={() => {
+         navigateTo('projects/audio-engine')
+         setShowFileStructure(false);
+       }} 
+       className="hover:underline hover:text-[#ADD8E6] cursor-pointer block text-left w-full text-ellipsis overflow-hidden text-xs md:text-sm lg:text-base"
+     >
+      ..|-audio
+     </button>
+     <button 
+       onClick={() => {
          navigateTo('experience')
          setShowFileStructure(false);
        }} 
@@ -232,12 +253,12 @@ useEffect(() => {
         className={`absolute top-0 left-0 w-full h-full bg-transparent transition-opacity duration-500 ${isFading ? 'opacity-100' : 'opacity-0'}`}
       ></div>
 
-<div 
+{/* <div 
   className={`fixed bottom-0 left-0 w-full opacity-50 transition-opacity duration-300`}
   style={{ boxShadow: '0 -2px 10px rgba(0,0,0,0.3)' }}
 >
   © 2025 Chris Xu. All rights reserved.
-</div>
+</div> */}
     </main>
   );
 }
