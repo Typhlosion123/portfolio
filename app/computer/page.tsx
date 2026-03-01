@@ -86,7 +86,7 @@ useEffect(() => {
           setTimeout(() => {
             router.push('/experience');
           }, 500);
-        } else if (inputCommand.trim().toLowerCase() === "cd funfact" && fileStructurePosition === "right") {
+        } else if (inputCommand.trim().toLowerCase() === "cat funfact" && fileStructurePosition === "right") {
           const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
           setCurrentFunFact(randomFact);
           setShowFunFact(true);
@@ -198,7 +198,7 @@ useEffect(() => {
  </p>
  
  <p className="font-mono text-white mt-1 md:mt-2 text-xs md:text-sm lg:text-base">
-   Try it with <span className="text-yellow-300">cd funfact</span>! (zoom only)
+   Try it with <span className="text-yellow-300">cat funfact</span>! (zoom only)
  </p>
 </div>
 )}
