@@ -23,9 +23,9 @@ const FIREBASE_CONFIG = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const COLOR_LOW = [239, 68, 68];
-const COLOR_MID = [250, 204, 21];
-const COLOR_HIGH = [34, 197, 94];
+const COLOR_LOW = [3, 66, 20];
+const COLOR_MID = [21, 67, 161];
+const COLOR_HIGH = [118, 6, 156];
 
 const PERSON_A_LABEL = "Alexa";
 const PERSON_B_LABEL = "Chris";
